@@ -3,14 +3,17 @@ package GrupoC_24_Q3.bin;
 public class Libro {
     private String Titulo;
     private String Autor;
-    private Integer ISB ; // Un numero de identificador del libro 
-    private String FechaPublicacion; // Se usa de esta manera "2 de septiembre del 1990"
+    private Integer Cantidad;
+    private String ISB ; // Un numero de identificador del libro 
+    private String YearPublication; // Se usa de esta manera "2 de septiembre del 1990"
     
-    public Libro(String titulo, String autor, Integer iSB, String fechaPublicacion) {
+    
+    public Libro(String titulo, String autor, Integer cantidad, String iSB, String fechaPublicacion) {
         Titulo = titulo;
         Autor = autor;
+        Cantidad = cantidad;
         ISB = iSB;
-        FechaPublicacion = fechaPublicacion;
+        YearPublication = fechaPublicacion;
     }
     public String getTitulo() {
         return Titulo;
@@ -24,17 +27,23 @@ public class Libro {
     public void setAutor(String autor) {
         Autor = autor;
     }
-    public Integer getISB() {
+    public String getISB() {
         return ISB;
     }
-    public void setISB(Integer iSB) {
+    public void setISB(String iSB) {
         ISB = iSB;
     }
-    public String getFechaPublicacion() {
-        return FechaPublicacion;
+    public String getYearPublication() {
+        return YearPublication;
     }
-    public void setFechaPublicacion(String fechaPublicacion) {
-        FechaPublicacion = fechaPublicacion;
+    public void setYearPublication(String yearPublication) {
+        YearPublication = yearPublication;
+    }
+    public int getCantidad() {
+        return Cantidad;
+    }
+    public void setCantidad(int cantidad) {
+        Cantidad = cantidad;
     }
 
 }
