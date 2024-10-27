@@ -1,4 +1,4 @@
-package Java.GrupoC_24_Q3.src.proyectodeestructura;
+package proyectodeestructura;
 
 public class Socio {
     private String Nombre;
