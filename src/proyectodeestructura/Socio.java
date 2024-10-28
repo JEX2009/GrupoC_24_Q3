@@ -1,18 +1,23 @@
 package proyectodeestructura;
 
-public class Socio {
-    private String Nombre;
-    private String Dirección;
-    private int Numero;
-    private String NumeroSocio; // Se puede hacer una combinacion de letras y numeros
-    private Integer Edad;
+import java.util.ArrayList;
 
-    public Socio(String nombre, String dirección, int numero, String numeroSocio, Integer edad) {
+public class Socio {
+    static int NumeroSocioGlobal = 0;
+    private String Nombre;
+    private String Password;
+    private int Numero;
+    private int NumeroSocio; // Se puede hacer una combinacion de letras y numeros
+    private int Edad;
+    public static ArrayList<Socio> socios = new ArrayList<Socio>();
+    public Socio(String nombre, String password, int numero, int edad) {
         Nombre = nombre;
-        Dirección = dirección;
+        Password = password;
         Numero = numero;
-        NumeroSocio = numeroSocio;
+        NumeroSocioGlobal ++;
+        NumeroSocio = NumeroSocioGlobal;
         Edad = edad;
+        
     }
     public String getNombre() {
         return Nombre;
@@ -20,11 +25,11 @@ public class Socio {
     public void setNombre(String nombre) {
         Nombre = nombre;
     }
-    public String getDirección() {
-        return Dirección;
+    public String getPassword() {
+        return Password;
     }
-    public void setDirección(String dirección) {
-        Dirección = dirección;
+    public void setPassword(String password) {
+        Password = password;
     }
     public int getNumero() {
         return Numero;
@@ -32,16 +37,37 @@ public class Socio {
     public void setNumero(int numero) {
         Numero = numero;
     }
-    public String getNumeroSocio() {
+    public int getNumeroSocio() {
         return NumeroSocio;
     }
-    public void setNumeroSocio(String numeroSocio) {
+    public void setNumeroSocio(int numeroSocio) {
         NumeroSocio = numeroSocio;
     }
-    public Integer getEdad() {
+    public int getEdad() {
         return Edad;
     }
-    public void setEdad(Integer edad) {
+    public void setEdad(int edad) {
         Edad = edad;
+    }
+    public static Socio Encontrar(int numSoci){
+        for(Socio soci:socios ){
+            if(soci.getNumeroSocio() == numSoci){
+                return soci;
+            }
+        }
+        return null;
+    }
+    @Override
+    public String toString() {
+        return "Socio [Nombre=" + Nombre + ", Password=" + Password + ", Numero=" + Numero + ", NumeroSocio="
+                + NumeroSocio + ", Edad=" + Edad + "]";
+    }
+    public static Socio Encontrar(String contra){
+        for(Socio soci:socios ){
+            if(soci.getPassword().equals(contra)){
+                return soci;
+            }
+        }
+        return null;
     }
 }

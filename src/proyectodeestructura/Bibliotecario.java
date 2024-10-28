@@ -1,16 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package proyectodeestructura;
 
-/**
- *
- * @author orozc
- */
+import java.util.ArrayList;
+
 public class Bibliotecario {
     private String Nombre;
     private String Password; // Se puede hacer un validador para que no se puedan poner contrasenas debiles
+    public static ArrayList<Bibliotecario> bibliotecarios = new ArrayList<Bibliotecario>();
+    
+    public static void setBibliotecarios(ArrayList<Bibliotecario> Bibliotecarios) {
+        bibliotecarios = Bibliotecarios;
+    }
+    public static ArrayList<Bibliotecario> getBibliotecarios() {
+        return bibliotecarios;
+    }
 
     public Bibliotecario(String nombre, String password) {
         Nombre = nombre;
@@ -32,5 +34,13 @@ public class Bibliotecario {
     public void setPassword(String password) {
         Password = password;
     }
-
+    public static Bibliotecario Encontrar(String contra){
+        for(Bibliotecario bibi:bibliotecarios ){
+            if(bibi.getPassword().equals(contra)){
+                return bibi;
+            }
+        }
+        return null;
+    }
+    
 }

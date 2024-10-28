@@ -1,18 +1,21 @@
 package proyectodeestructura;
 
+import java.util.ArrayList;
+
 public class Libro {
     private String Titulo;
     private String Autor;
-    private Integer Cantidad;
+    private Boolean Disponible;
     private String ISB; // Un numero de identificador del libro
     private String YearPublication; // Se usa de esta manera "2 de septiembre del 1990"
+    public static ArrayList<Libro> libros = new ArrayList<Libro>();
 
-    public Libro(String titulo, String autor, Integer cantidad, String iSB, String fechaPublicacion) {
-        Titulo = titulo;
-        Autor = autor;
-        Cantidad = cantidad;
-        ISB = iSB;
-        YearPublication = fechaPublicacion;
+    public Libro(String titulo, String autor, String iSB, String fechaPublicacion) {
+        this.Titulo = titulo;
+        this.Autor = autor;
+        this.Disponible = true;
+        this.ISB = iSB;
+        this.YearPublication = fechaPublicacion;
     }
 
     public String getTitulo() {
@@ -47,12 +50,28 @@ public class Libro {
         YearPublication = yearPublication;
     }
 
-    public int getCantidad() {
-        return Cantidad;
+    public Boolean getDisponible() {
+        return Disponible;
     }
 
-    public void setCantidad(int cantidad) {
-        Cantidad = cantidad;
+    public void setDisponible(Boolean disponible) {
+        Disponible = disponible;
+    }
+    
+    @Override
+    public String toString() {
+        return "Libro [Titulo=" + Titulo + ", Autor=" + Autor + ", Disponible=" + Disponible + ", ISB=" + ISB
+                + ", YearPublication=" + YearPublication + "]";
     }
 
+    public static Libro Encontrar(String titulo){
+        for(Libro titu:libros ){
+            if(titu.getTitulo().equals(titulo) || titu.getDisponible() == true){
+                return titu;
+            }
+        }
+        return null;
+    }
+
+  
 }
