@@ -45,6 +45,12 @@ public class Prestamo {
     public void setFechaDevolucion(String fechaDevolucion) {
         FechaDevolucion = fechaDevolucion;
     }
+    @Override
+    public String toString() {
+        return "Prestamo [LibroPrestado=" + LibroPrestado + ", BibliotecarioTurno=" + BibliotecarioTurno
+                + ", SocioPresto=" + SocioPresto + ", FechaPrestamo=" + FechaPrestamo + ", FechaDevolucion="
+                + FechaDevolucion + "]";
+    }
 
     
 }
