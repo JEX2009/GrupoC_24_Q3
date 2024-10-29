@@ -6,13 +6,6 @@ public class Bibliotecario {
     private String Nombre;
     private String Password; // Se puede hacer un validador para que no se puedan poner contrasenas debiles
     public static ArrayList<Bibliotecario> bibliotecarios = new ArrayList<Bibliotecario>();
-    
-    public static void setBibliotecarios(ArrayList<Bibliotecario> Bibliotecarios) {
-        bibliotecarios = Bibliotecarios;
-    }
-    public static ArrayList<Bibliotecario> getBibliotecarios() {
-        return bibliotecarios;
-    }
 
     public Bibliotecario(String nombre, String password) {
         Nombre = nombre;
@@ -34,13 +27,22 @@ public class Bibliotecario {
     public void setPassword(String password) {
         Password = password;
     }
-    public static Bibliotecario Encontrar(String contra){
-        for(Bibliotecario bibi:bibliotecarios ){
-            if(bibi.getPassword().equals(contra)){
+
+    public static Bibliotecario Encontrar(String contra) {
+        for (Bibliotecario bibi : bibliotecarios) {
+            if (bibi.getPassword().equals(contra)) {
                 return bibi;
             }
         }
         return null;
     }
-    
+
+    public static void setBibliotecarios(ArrayList<Bibliotecario> bibliotecarios) {
+        Bibliotecario.bibliotecarios = bibliotecarios;
+    }
+
+    public static ArrayList<Bibliotecario> getBibliotecarios() {
+        return bibliotecarios;
+    }
+
 }

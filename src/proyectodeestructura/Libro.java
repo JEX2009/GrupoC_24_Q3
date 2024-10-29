@@ -6,9 +6,9 @@ public class Libro {
     private String Titulo;
     private String Autor;
     private Boolean Disponible;
-    private String ISB; // Un numero de identificador del libro
-    private String YearPublication; // Se usa de esta manera "2 de septiembre del 1990"
-    public static ArrayList<Libro> libros = new ArrayList<Libro>();
+    private String ISB;
+    private String YearPublication;
+    public static ArrayList<Libro> libros = new ArrayList<>();
 
     public Libro(String titulo, String autor, String iSB, String fechaPublicacion) {
         this.Titulo = titulo;
@@ -57,21 +57,19 @@ public class Libro {
     public void setDisponible(Boolean disponible) {
         Disponible = disponible;
     }
-    
+
     @Override
     public String toString() {
         return "Libro [Titulo=" + Titulo + ", Autor=" + Autor + ", Disponible=" + Disponible + ", ISB=" + ISB
                 + ", YearPublication=" + YearPublication + "]";
     }
 
-    public static Libro Encontrar(String titulo){
-        for(Libro titu:libros ){
-            if(titu.getTitulo().equals(titulo) || titu.getDisponible() == true){
+    public static Libro Encontrar(String titulo) {
+        for (Libro titu : libros) {
+            if (titu.getTitulo().equalsIgnoreCase(titulo) && titu.getDisponible()) {
                 return titu;
             }
         }
         return null;
     }
-
-  
 }
