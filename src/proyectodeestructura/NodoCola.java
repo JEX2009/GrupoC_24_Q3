@@ -1,19 +1,19 @@
 package proyectodeestructura;
 
 public class NodoCola {
-    private String dato;
+    private Prestamo dato;
     private NodoCola siguiente;
 
-    public NodoCola(String dato) {
+    public NodoCola(Prestamo dato) {
         this.dato = dato;
         this.siguiente = null;
     }
 
-    public String getDato() {
+    public Prestamo getDato() {
         return dato;
     }
 
-    public void setDato(String dato) {
+    public void setDato(Prestamo dato) {
         this.dato = dato;
     }
 

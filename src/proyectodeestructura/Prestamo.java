@@ -1,11 +1,14 @@
 package proyectodeestructura;
 
+import java.util.ArrayList;
+
 public class Prestamo {
     private Libro libroPrestado;
     private Bibliotecario bibliotecarioTurno;
     private Socio socioPresto;
     private String fechaPrestamo;
     private String fechaDevolucion;
+    public static ArrayList<Prestamo> PrestamosActivos = new ArrayList<>();
 
     public Prestamo(Libro libroPrestado, Bibliotecario bibliotecarioTurno, Socio socioPresto, String fechaPrestamo,
             String fechaDevolucion) {

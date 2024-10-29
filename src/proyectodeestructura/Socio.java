@@ -11,6 +11,7 @@ public class Socio {
     private int numeroSocio;
     private int edad;
     public static ArrayList<Socio> socios = new ArrayList<>();
+    public Pila historialBusqueda = new Pila();
 
     public Socio(String nombre, String password, int numero, int edad) {
         this.nombre = nombre;

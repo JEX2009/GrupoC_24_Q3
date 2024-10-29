@@ -9,7 +9,7 @@ public class Cola {
         this.fin = null;
     }
 
-    public void encolar(String socio) {
+    public void encolar(Prestamo socio) {
         NodoCola nuevoNodo = new NodoCola(socio);
         if (fin == null) {
             frente = nuevoNodo;
@@ -20,12 +20,12 @@ public class Cola {
         }
     }
 
-    public String desencolar() {
+    public Prestamo desencolar() {
         if (frente == null) {
             System.out.println("La cola está vacía.");
             return null;
         }
-        String socio = frente.getDato();
+        Prestamo socio = frente.getDato();
         frente = frente.getSiguiente();
         if (frente == null) {
             fin = null;
@@ -33,7 +33,7 @@ public class Cola {
         return socio;
     }
 
-    public String frente() {
+    public Prestamo frente() {
         if (frente == null) {
             System.out.println("La cola está vacía.");
             return null;
@@ -43,5 +43,13 @@ public class Cola {
 
     public boolean estaVacia() {
         return frente == null;
+    }
+
+    public void mostrar(){
+        frente = this.frente;
+        while(fin == null){
+            System.out.println(frente.getDato().getFechaDevolucion());
+            frente = frente.getSiguiente();
+        }
     }
 }

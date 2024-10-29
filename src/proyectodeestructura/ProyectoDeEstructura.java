@@ -56,16 +56,13 @@ public class ProyectoDeEstructura {
         } else if (registradoSocio) {
             terminado = false;
             while (!terminado) {
-                System.out.println("Agrega la accion\n1.Ver historial\n2.Ver lista de espera\n3.Salir");
+                System.out.println("Agrega la accion\n1.Buscar libro\n2.Salir");
                 String eleccion = scanner.nextLine();
                 switch (eleccion) {
                     case "1":
-                        verHistorial();
+                        Busqueda(scanner);
                         break;
                     case "2":
-                        verListaEspera();
-                        break;
-                    case "3":
                         terminado = true;
                         System.out.println("Saliendo del sistema...");
                         break;
@@ -150,16 +147,21 @@ public class ProyectoDeEstructura {
             return;
         }
         System.out.println("El libro " + libro.getTitulo() + " se encontró");
-
         System.out.println("Qué fecha se realizó el préstamo (ej: 1 de julio del 2024): ");
         String fechaPrestado = scanner.nextLine();
 
         System.out.println("Qué fecha se devuelve el préstamo (ej: 1 de julio del 2024): ");
         String fechaDevolu = scanner.nextLine();
-
-        Prestamo prestamo = new Prestamo(libro, seEncontroBibl, seEncontroSoci, fechaPrestado, fechaDevolu);
-        libro.setDisponible(false);
-        System.out.println(prestamo);
+        if (libro.getDisponible()){
+            Prestamo prestamo = new Prestamo(libro, seEncontroBibl, seEncontroSoci, fechaPrestado, fechaDevolu);
+            libro.setDisponible(false);
+            Prestamo.PrestamosActivos.add(prestamo);
+            System.out.println(prestamo);
+        }else{
+            System.out.println("Se agrega el socio a la cola de este libro");
+            Prestamo prestamo = new Prestamo(libro, seEncontroBibl, seEncontroSoci, fechaPrestado, fechaDevolu);
+            Libro.listaEspera.encolar(prestamo);
+        }
     }
 
     private static void agregarSocio(Scanner scanner) {
@@ -193,13 +195,20 @@ public class ProyectoDeEstructura {
         System.out.println(libro);
     }
 
-    private static void verHistorial() {
-        // Implementación de visualización del historial de búsqueda
-        System.out.println("Visualizando historial...");
-    }
+    // se aniade las colas y las pilas pero se le dara un mayor uso mas adelante
+    private static void Busqueda(Scanner scanner) {
+        System.out.println("Que libro quieres buscar: ");
+        String Busqueda = scanner.nextLine();
+        seEncontroUse.historialBusqueda.apilar(Busqueda);
+        Libro libro = Libro.Encontrar(Busqueda);
+        if(libro != null){
+            System.out.println("La informacion de " + libro.getTitulo()+ " es " + libro.getAutor() + "\n" + libro.getISB() + "\n" + libro.getYearPublication() + "\n" + libro.getDisponible());
+            System.out.println("La lista de espera estan ");
+            Libro.listaEspera.mostrar(); // Aca hay un pequenio error dado que las fechas probablemente no se actualicen pero en un caso perfecto el bibliotecario pone la fecha de prestamo de los de la lista de espera
+        }else{
+            System.out.println("No se encontro el libro");
+        }
+    }   
 
-    private static void verListaEspera() {
-        // Implementación de visualización de la lista de espera
-        System.out.println("Visualizando lista de espera...");
-    }
+
 }

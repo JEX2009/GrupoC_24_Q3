@@ -9,6 +9,7 @@ public class Libro {
     private String ISB;
     private String YearPublication;
     public static ArrayList<Libro> libros = new ArrayList<>();
+    public static Cola listaEspera = new Cola();
 
     public Libro(String titulo, String autor, String iSB, String fechaPublicacion) {
         this.Titulo = titulo;

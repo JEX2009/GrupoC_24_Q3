@@ -14,7 +14,7 @@ public class Pila {
     }
 
     public String desapilar() {
-        if (tope == null) {
+        if (estaVacia()) {
             System.out.println("La pila está vacía.");
             return null;
         }
