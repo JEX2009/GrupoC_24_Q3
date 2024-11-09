@@ -6,7 +6,6 @@ public class Socio {
     static int numeroSocioGlobal = 0;
     private String nombre;
     private String password;
-    private String direccion;
     private int numero;
     private int numeroSocio;
     private int edad;
@@ -16,7 +15,6 @@ public class Socio {
     public Socio(String nombre, String password, int numero, int edad) {
         this.nombre = nombre;
         this.password = password;
-        this.direccion = direccion;
         this.numero = numero;
         this.edad = edad;
         this.numeroSocio = ++numeroSocioGlobal;

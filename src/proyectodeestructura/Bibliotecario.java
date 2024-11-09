@@ -6,7 +6,7 @@ public class Bibliotecario {
     private String Nombre;
     private String Password; // Se puede hacer un validador para que no se puedan poner contrasenas debiles
     public static ArrayList<Bibliotecario> bibliotecarios = new ArrayList<Bibliotecario>();
-
+    
     public Bibliotecario(String nombre, String password) {
         Nombre = nombre;
         Password = password;

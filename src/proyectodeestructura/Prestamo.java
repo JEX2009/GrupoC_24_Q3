@@ -6,8 +6,8 @@ public class Prestamo {
     private Libro libroPrestado;
     private Bibliotecario bibliotecarioTurno;
     private Socio socioPresto;
-    private String fechaPrestamo;
-    private String fechaDevolucion;
+    private String fechaPrestamo;// 19/10/20 En este formato
+    private String fechaDevolucion;// 19/10/20 En este formato
     public static ArrayList<Prestamo> PrestamosActivos = new ArrayList<>();
 
     public Prestamo(Libro libroPrestado, Bibliotecario bibliotecarioTurno, Socio socioPresto, String fechaPrestamo,

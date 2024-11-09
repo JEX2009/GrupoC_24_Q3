@@ -7,7 +7,7 @@ public class Libro {
     private String Autor;
     private Boolean Disponible;
     private String ISB;
-    private String YearPublication;
+    private String YearPublication; // 19/10/20 En este formato
     public static ArrayList<Libro> libros = new ArrayList<>();
     public static Cola listaEspera = new Cola();
 

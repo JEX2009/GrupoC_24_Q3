@@ -13,14 +13,26 @@ public class ProyectoDeEstructura {
     static Socio seEncontroUse;
 
     public static void main(String[] args) {
+        // Datos quemados para probar aunque en un proyecto estos saldrian de la base de
+        // datos
+        // El que cambie la lista porfavor agregue estos datos
+        Bibliotecario.bibliotecarios.add(new Bibliotecario("Admin", "123"));
+        Socio.socios.add(new Socio("Socio", "123", 8902020, 19));
+        Libro.libros.add(new Libro("3 noches", "Paulo", "12ehdqw", "9/11/1990"));
+        Libro.libros.add(new Libro("3 noches", "Paulo", "12ehdqw", "9/11/1990"));
+        //
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Bienvenido al sistema");
+
         System.out.print("Agrega tu tipo de usuario (bibliotecario, socio): ");
         String tipoUsuario = scanner.nextLine().toLowerCase();
+
         System.out.print("Agrega tu nombre de usuario. \nSi no tienes, ingresa '0': ");
         String usuario = scanner.nextLine();
         registrado = false;
 
+        // Si el usuario pone 0 se le redirecciona al crear una cuenta
         if (usuario.equals("0")) {
             if (tipoUsuario.equals("socio")) {
                 agregarSocio(scanner);
@@ -28,11 +40,22 @@ public class ProyectoDeEstructura {
             } else if (tipoUsuario.equals("bibliotecario")) {
                 registrarNuevoBiblio(scanner);
                 registrado = true;
+            } else {
+                // Se puede hacer un metodo que vuelva a preguntar para ahorrar volver a correr
+                // el programa
+                System.out.println("No se ingreso correctamente");
             }
         } else {
-            registrado = iniciarSesion(scanner, usuario, tipoUsuario);
+            //Dependiendo del usuario se usa una variable o otra, se puede quitar la variable tipode usuario de iniciar sesion
+            //pero no cambia mucho
+            if (tipoUsuario.equals("bibliotecario")) {
+                registrado = iniciarSesion(scanner, usuario, tipoUsuario);
+            }else{
+                registradoSocio= iniciarSesion(scanner, usuario, tipoUsuario);
+            }
         }
 
+        //Se tienen 2 variables para iniciar de una manera o otra para simplificar la corraboracion
         if (registrado) {
             terminado = false;
             while (!terminado) {
@@ -152,12 +175,12 @@ public class ProyectoDeEstructura {
 
         System.out.println("Qué fecha se devuelve el préstamo (ej: 1 de julio del 2024): ");
         String fechaDevolu = scanner.nextLine();
-        if (libro.getDisponible()){
+        if (libro.getDisponible()) {
             Prestamo prestamo = new Prestamo(libro, seEncontroBibl, seEncontroSoci, fechaPrestado, fechaDevolu);
             libro.setDisponible(false);
             Prestamo.PrestamosActivos.add(prestamo);
             System.out.println(prestamo);
-        }else{
+        } else {
             System.out.println("Se agrega el socio a la cola de este libro");
             Prestamo prestamo = new Prestamo(libro, seEncontroBibl, seEncontroSoci, fechaPrestado, fechaDevolu);
             Libro.listaEspera.encolar(prestamo);
@@ -201,14 +224,16 @@ public class ProyectoDeEstructura {
         String Busqueda = scanner.nextLine();
         seEncontroUse.historialBusqueda.apilar(Busqueda);
         Libro libro = Libro.Encontrar(Busqueda);
-        if(libro != null){
-            System.out.println("La informacion de " + libro.getTitulo()+ " es " + libro.getAutor() + "\n" + libro.getISB() + "\n" + libro.getYearPublication() + "\n" + libro.getDisponible());
+        if (libro != null) {
+            System.out.println("La informacion de " + libro.getTitulo() + " es " + libro.getAutor() + "\n"
+                    + libro.getISB() + "\n" + libro.getYearPublication() + "\n" + libro.getDisponible());
             System.out.println("La lista de espera estan ");
-            Libro.listaEspera.mostrar(); // Aca hay un pequenio error dado que las fechas probablemente no se actualicen pero en un caso perfecto el bibliotecario pone la fecha de prestamo de los de la lista de espera
-        }else{
+            Libro.listaEspera.mostrar(); // Aca hay un pequenio error dado que las fechas probablemente no se actualicen
+                                         // pero en un caso perfecto el bibliotecario pone la fecha de prestamo de los
+                                         // de la lista de espera
+        } else {
             System.out.println("No se encontro el libro");
         }
-    }   
-
+    }
 
 }
