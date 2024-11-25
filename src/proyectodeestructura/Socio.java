@@ -1,15 +1,13 @@
 package proyectodeestructura;
 
-import java.util.ArrayList;
-
-public class Socio {
+public class Socio extends elemento{
     static int numeroSocioGlobal = 0;
     private String nombre;
     private String password;
     private int numero;
     private int numeroSocio;
     private int edad;
-    public static ArrayList<Socio> socios = new ArrayList<>();
+    public static ListaElementos socios = new ListaElementos();
     private Pila historialBusqueda = new Pila();
 
     public Socio(String nombre, String password, int numero, int edad) {
@@ -66,24 +64,6 @@ public class Socio {
 
     public void setEdad(int edad) {
         this.edad = edad;
-    }
-
-    public static Socio Encontrar(int numSocio) {
-        for (Socio socio : socios) {
-            if (socio.getNumeroSocio() == numSocio) {
-                return socio;
-            }
-        }
-        return null;
-    }
-
-    public static Socio Encontrar(String contra) {
-        for (Socio socio : socios) {
-            if (socio.getPassword().equals(contra)) {
-                return socio;
-            }
-        }
-        return null;
     }
 
     @Override

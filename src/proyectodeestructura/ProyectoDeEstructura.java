@@ -127,7 +127,7 @@ public class ProyectoDeEstructura {
             if (tipoUsuario.equals("bibliotecario")) {
                 System.out.println("Agrega tu contraseña: ");
                 contrasenia = scanner.nextLine();
-                seEncontroBibl = Bibliotecario.Encontrar(contrasenia);
+                seEncontroBibl = Bibliotecario.bibliotecarios.EncontrarB(contrasenia);
                 if (seEncontroBibl != null) {
                     System.out.println("El bibliotecario " + seEncontroBibl.getNombre() + " se encontró");
                     return true;
@@ -141,7 +141,7 @@ public class ProyectoDeEstructura {
             } else if (tipoUsuario.equals("socio")) {
                 System.out.println("Agrega tu contraseña: ");
                 contrasenia = scanner.nextLine();
-                seEncontroUse = Socio.Encontrar(contrasenia);
+                seEncontroUse = Socio.socios.Encontrar(contrasenia);
                 if (seEncontroUse != null) {
                     System.out.println("El usuario " + seEncontroUse.getNombre() + " se encontró");
                     return true;
@@ -162,7 +162,7 @@ public class ProyectoDeEstructura {
         System.out.println("Que socio pide el trámite, escribe su número de socio: ");
         int numSocio = scanner.nextInt();
         scanner.nextLine(); // Limpiar buffer
-        Socio seEncontroSoci = Socio.Encontrar(numSocio);
+        Socio seEncontroSoci = Socio.socios.Encontrar(numSocio);
         if (seEncontroSoci == null) {
             System.out.println("No se encontró socio con este número.");
             return;
@@ -171,7 +171,7 @@ public class ProyectoDeEstructura {
 
         System.out.println("Qué libro quiere prestar, agrega el título: ");
         String titulo = scanner.nextLine();
-        Libro libro = Libro.Encontrar(titulo);
+        Libro libro = Libro.libros.EncontrarL(titulo);
         if (libro == null) {
             System.out.println("No se encontró libro o ya no quedan disponibles.");
             return;
@@ -240,11 +240,10 @@ public class ProyectoDeEstructura {
         System.out.println("Que libro quieres buscar: ");
         String Busqueda = scanner.nextLine();
         seEncontroUse.getHistorialBusqueda().add(Busqueda);
-        Libro libro = Libro.Encontrar(Busqueda);
+        Libro libro = Libro.libros.EncontrarL(Busqueda);
         if (libro != null) {
-            System.out.println("La informacion de " + libro.getTitulo() + " es " + libro.getAutor() + "\n"
-                    + libro.getISB() + "\n" + libro.getYearPublication() + "\n" + libro.getDisponible());
-            System.out.println("La lista de espera estan ");
+            System.out.println(libro);
+            System.out.println("Lista de espera: ");
             Libro.listaEspera.mostrar(); // Aca hay un pequenio error dado que las fechas probablemente no se actualicen
                                          // pero en un caso perfecto el bibliotecario pone la fecha de prestamo de los
                                          // de la lista de espera

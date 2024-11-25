@@ -1,10 +1,10 @@
 package proyectodeestructura;
 
-public class NodoBusqueda {
+public class NodoPila {
     private String dato;
-    private NodoBusqueda siguiente;
+    private NodoPila siguiente;
 
-    public NodoBusqueda(String dato) {
+    public NodoPila(String dato) {
         this.dato = dato;
         this.siguiente = null;
     }
@@ -17,11 +17,11 @@ public class NodoBusqueda {
         this.dato = dato;
     }
 
-    public NodoBusqueda getSiguiente() {
+    public NodoPila getSiguiente() {
         return siguiente;
     }
 
-    public void setSiguiente(NodoBusqueda siguiente) {
+    public void setSiguiente(NodoPila siguiente) {
         this.siguiente = siguiente;
     }
 }
