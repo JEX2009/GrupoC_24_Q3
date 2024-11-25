@@ -1,14 +1,14 @@
 package proyectodeestructura;
 
 public class Pila {
-    private NodoPila tope;
+    private NodoBusqueda tope;
 
     public Pila() {
         this.tope = null;
     }
 
-    public void apilar(String busqueda) {
-        NodoPila nuevoNodo = new NodoPila(busqueda);
+    public void add(String busqueda) {
+        NodoBusqueda nuevoNodo = new NodoBusqueda(busqueda);
         nuevoNodo.setSiguiente(tope);
         tope = nuevoNodo;
     }

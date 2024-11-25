@@ -1,16 +1,16 @@
 package proyectodeestructura;
 
-public class Cola {
-    private NodoCola frente;
-    private NodoCola fin;
+public class ListaEsperaCOLA {
+    private NodoPrestamo frente;
+    private NodoPrestamo fin;
 
-    public Cola() {
+    public ListaEsperaCOLA() {
         this.frente = null;
         this.fin = null;
     }
 
     public void encolar(Prestamo socio) {
-        NodoCola nuevoNodo = new NodoCola(socio);
+        NodoPrestamo nuevoNodo = new NodoPrestamo(socio);
         if (fin == null) {
             frente = nuevoNodo;
             fin = nuevoNodo;
@@ -45,11 +45,16 @@ public class Cola {
         return frente == null;
     }
 
-    public void mostrar(){
-        frente = this.frente;
-        while(fin == null){
-            System.out.println(frente.getDato().getFechaDevolucion());
-            frente = frente.getSiguiente();
+    public void mostrar() {
+        NodoPrestamo frente = this.frente;
+        // En caso de que este vacia no mostrar cola
+        if (frente == null) {
+            System.out.println("La lista de espera esta vacia puedes hacer el prestamo");
+        } else {
+            while (fin == null) {
+                System.out.println(frente.getDato().getFechaDevolucion());
+                frente = frente.getSiguiente();
+            }
         }
     }
 }
