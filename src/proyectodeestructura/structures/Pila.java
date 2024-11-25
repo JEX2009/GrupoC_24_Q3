@@ -1,4 +1,4 @@
-package proyectodeestructura;
+package proyectodeestructura.structures;
 
 public class Pila {
     private NodoBusqueda tope;

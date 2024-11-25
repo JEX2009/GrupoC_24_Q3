@@ -1,4 +1,4 @@
-package proyectodeestructura;
+package proyectodeestructura.structures;
 
 public class NodoBusqueda {
     private String dato;

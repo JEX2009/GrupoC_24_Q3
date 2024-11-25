@@ -2,6 +2,8 @@ package proyectodeestructura;
 
 import java.util.ArrayList;
 
+import proyectodeestructura.structures.Pila;
+
 public class Socio {
     static int numeroSocioGlobal = 0;
     private String nombre;

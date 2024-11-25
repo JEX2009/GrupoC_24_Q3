@@ -2,6 +2,8 @@ package proyectodeestructura;
 
 import java.util.ArrayList;
 
+import proyectodeestructura.structures.ListaEsperaCOLA;
+
 public class Libro {
     private String Titulo;
     private String Autor;
