@@ -10,7 +10,7 @@ public class Socio {
     private int numeroSocio;
     private int edad;
     public static ArrayList<Socio> socios = new ArrayList<>();
-    public Pila historialBusqueda = new Pila();
+    private Pila historialBusqueda = new Pila();
 
     public Socio(String nombre, String password, int numero, int edad) {
         this.nombre = nombre;
@@ -18,6 +18,14 @@ public class Socio {
         this.numero = numero;
         this.edad = edad;
         this.numeroSocio = ++numeroSocioGlobal;
+    }
+
+    public Pila getHistorialBusqueda() {
+        return historialBusqueda;
+    }
+
+    public void setHistorialBusqueda(Pila historialBusqueda) {
+        this.historialBusqueda = historialBusqueda;
     }
 
     public String getNombre() {

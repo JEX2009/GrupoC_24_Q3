@@ -1,10 +1,10 @@
 package proyectodeestructura;
 
-public class NodoCola {
+public class NodoPrestamo {
     private Prestamo dato;
-    private NodoCola siguiente;
+    private NodoPrestamo siguiente;
 
-    public NodoCola(Prestamo dato) {
+    public NodoPrestamo(Prestamo dato) {
         this.dato = dato;
         this.siguiente = null;
     }
@@ -17,11 +17,11 @@ public class NodoCola {
         this.dato = dato;
     }
 
-    public NodoCola getSiguiente() {
+    public NodoPrestamo getSiguiente() {
         return siguiente;
     }
 
-    public void setSiguiente(NodoCola siguiente) {
+    public void setSiguiente(NodoPrestamo siguiente) {
         this.siguiente = siguiente;
     }
 }
