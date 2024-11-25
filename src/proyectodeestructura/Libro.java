@@ -1,16 +1,16 @@
 package proyectodeestructura;
 
-import java.util.ArrayList;
-
+import proyectodeestructura.structures.ListaElementos;
 import proyectodeestructura.structures.ListaEsperaCOLA;
+import proyectodeestructura.structures.elemento;
 
-public class Libro {
+public class Libro extends elemento{
     private String Titulo;
     private String Autor;
     private Boolean Disponible;
     private String ISB;
     private String YearPublication; // 19/10/20 En este formato
-    public static ArrayList<Libro> libros = new ArrayList<>();
+    public static ListaElementos libros = new ListaElementos();
     public static ListaEsperaCOLA listaEspera = new ListaEsperaCOLA();
 
     public Libro(String titulo, String autor, String iSB, String fechaPublicacion) {
@@ -63,16 +63,8 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro [Titulo=" + Titulo + ", Autor=" + Autor + ", Disponible=" + Disponible + ", ISB=" + ISB
+        return "La informacion de " + Titulo + ", Autor=" + Autor + ", Disponible=" + Disponible + ", ISB=" + ISB
                 + ", YearPublication=" + YearPublication + "]";
     }
 
-    public static Libro Encontrar(String titulo) {
-        for (Libro titu : libros) {
-            if (titu.getTitulo().equalsIgnoreCase(titulo) && titu.getDisponible()) {
-                return titu;
-            }
-        }
-        return null;
-    }
 }

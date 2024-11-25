@@ -1,14 +1,15 @@
 package proyectodeestructura;
 
-import java.util.ArrayList;
+import proyectodeestructura.structures.ListaElementos;
+import proyectodeestructura.structures.elemento;
 
-public class Prestamo {
+public class Prestamo extends elemento{
     private Libro libroPrestado;
     private Bibliotecario bibliotecarioTurno;
     private Socio socioPresto;
     private String fechaPrestamo;// 19/10/20 En este formato
     private String fechaDevolucion;// 19/10/20 En este formato
-    public static ArrayList<Prestamo> PrestamosActivos = new ArrayList<>();
+    public static ListaElementos PrestamosActivos = new ListaElementos();
 
     public Prestamo(Libro libroPrestado, Bibliotecario bibliotecarioTurno, Socio socioPresto, String fechaPrestamo,
             String fechaDevolucion) {
