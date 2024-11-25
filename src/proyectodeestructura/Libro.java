@@ -1,5 +1,9 @@
 package proyectodeestructura;
 
+import proyectodeestructura.structures.ListaElementos;
+import proyectodeestructura.structures.ListaEsperaCOLA;
+import proyectodeestructura.structures.elemento;
+
 public class Libro extends elemento{
     private String Titulo;
     private String Autor;

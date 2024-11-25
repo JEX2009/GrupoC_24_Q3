@@ -1,5 +1,8 @@
 package proyectodeestructura;
 
+import proyectodeestructura.structures.ListaElementos;
+import proyectodeestructura.structures.elemento;
+
 public class Prestamo extends elemento{
     private Libro libroPrestado;
     private Bibliotecario bibliotecarioTurno;

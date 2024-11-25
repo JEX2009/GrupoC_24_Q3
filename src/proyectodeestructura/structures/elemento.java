@@ -1,4 +1,4 @@
-package proyectodeestructura;
+package proyectodeestructura.structures;
 
 public abstract class elemento {
     // Clase hecha exclusivamente para poder almacenar los objetos como un dato

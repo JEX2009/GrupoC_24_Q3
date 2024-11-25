@@ -1,4 +1,8 @@
-package proyectodeestructura;
+package proyectodeestructura.structures;
+
+import proyectodeestructura.Bibliotecario;
+import proyectodeestructura.Libro;
+import proyectodeestructura.Socio;
 
 public class ListaElementos {
     private NodoElemento cabeza;

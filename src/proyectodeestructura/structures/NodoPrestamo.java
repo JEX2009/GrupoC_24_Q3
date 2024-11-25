@@ -1,4 +1,6 @@
-package proyectodeestructura;
+package proyectodeestructura.structures;
+
+import proyectodeestructura.Prestamo;
 
 public class NodoPrestamo {
     private Prestamo dato;

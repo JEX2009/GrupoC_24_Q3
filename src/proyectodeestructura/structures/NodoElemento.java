@@ -1,4 +1,4 @@
-package proyectodeestructura;
+package proyectodeestructura.structures;
 
 public class NodoElemento {
     private elemento dato;  // Aquí almacenamos el dato de tipo elemento

@@ -1,5 +1,8 @@
 package proyectodeestructura;
 
+import proyectodeestructura.structures.ListaElementos;
+import proyectodeestructura.structures.elemento;
+
 public class Bibliotecario extends elemento{
     private String Nombre;
     private String Password; // Se puede hacer un validador para que no se puedan poner contrasenas debiles
