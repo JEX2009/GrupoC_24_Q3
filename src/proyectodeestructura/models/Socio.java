@@ -1,11 +1,10 @@
-package proyectodeestructura;
+package proyectodeestructura.models;
 
 import proyectodeestructura.structures.ListaElementos;
 import proyectodeestructura.structures.Pila;
 import proyectodeestructura.structures.elemento;
 
-
-public class Socio extends elemento{
+public class Socio extends elemento {
     static int numeroSocioGlobal = 0;
     private String nombre;
     private String password;

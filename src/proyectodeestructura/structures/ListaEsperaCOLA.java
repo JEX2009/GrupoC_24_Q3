@@ -1,6 +1,6 @@
 package proyectodeestructura.structures;
 
-import proyectodeestructura.Prestamo;
+import proyectodeestructura.models.Prestamo;
 
 public class ListaEsperaCOLA {
     private NodoPrestamo frente;

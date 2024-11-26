@@ -1,8 +1,8 @@
 package proyectodeestructura.structures;
 
-import proyectodeestructura.Bibliotecario;
-import proyectodeestructura.Libro;
-import proyectodeestructura.Socio;
+import proyectodeestructura.models.Bibliotecario;
+import proyectodeestructura.models.Libro;
+import proyectodeestructura.models.Socio;
 
 public class ListaElementos {
     private NodoElemento cabeza;
@@ -35,7 +35,7 @@ public class ListaElementos {
     public Socio Encontrar(int numSocio) {
         NodoElemento auxiliar = cabeza;
         while (auxiliar != null) {
-            if (auxiliar.getDato() instanceof Socio) { 
+            if (auxiliar.getDato() instanceof Socio) {
                 Socio socio = (Socio) auxiliar.getDato();
                 if (socio.getNumeroSocio() == numSocio) {
                     return socio;
@@ -45,11 +45,11 @@ public class ListaElementos {
         }
         return null;
     }
-    
+
     public Socio Encontrar(String contra) {
         NodoElemento auxiliar = cabeza;
         while (auxiliar != null) {
-            if (auxiliar.getDato() instanceof Socio) { 
+            if (auxiliar.getDato() instanceof Socio) {
                 Socio socio = (Socio) auxiliar.getDato();
                 if (socio.getPassword().equals(contra)) {
                     return socio;
@@ -59,12 +59,12 @@ public class ListaElementos {
         }
         return null;
     }
- 
+
     // Clase Libro
     public Libro EncontrarL(String titulo) {
         NodoElemento auxiliar = cabeza;
         while (auxiliar != null) {
-            if (auxiliar.getDato() instanceof Libro) { 
+            if (auxiliar.getDato() instanceof Libro) {
                 Libro libro = (Libro) auxiliar.getDato();
                 if (libro.getTitulo().equals(titulo)) {
                     return libro;
@@ -79,7 +79,7 @@ public class ListaElementos {
     public Bibliotecario EncontrarB(String titulo) {
         NodoElemento auxiliar = cabeza;
         while (auxiliar != null) {
-            if (auxiliar.getDato() instanceof Bibliotecario) { 
+            if (auxiliar.getDato() instanceof Bibliotecario) {
                 Bibliotecario bibliotecario = (Bibliotecario) auxiliar.getDato();
                 if (bibliotecario.getPassword().equals(titulo)) {
                     return bibliotecario;
@@ -90,6 +90,6 @@ public class ListaElementos {
         return null;
     }
 
-    //Clase Prestamo
-    
+    // Clase Prestamo
+
 }

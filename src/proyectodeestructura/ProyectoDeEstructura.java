@@ -2,6 +2,11 @@ package proyectodeestructura;
 
 import java.util.Scanner;
 
+import proyectodeestructura.models.Bibliotecario;
+import proyectodeestructura.models.Libro;
+import proyectodeestructura.models.Prestamo;
+import proyectodeestructura.models.Socio;
+
 public class ProyectoDeEstructura {
     static String nuevaContrasenia;
     static String nuevoUsuario;
