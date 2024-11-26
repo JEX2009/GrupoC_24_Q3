@@ -1,34 +1,32 @@
 package proyectodeestructura.structures;
 
 class NodoParaDoble {
-    int dato;
-    NodoParaDoble anterior;
-    NodoParaDoble siguiente;
+    private ListaDobleCircular lista;
+    private NodoParaDoble anterior;
+    private NodoParaDoble siguiente;
 
-    public NodoParaDoble(int dato) {
-        this.dato = dato;
-        this.anterior = null;
-        this.siguiente = null;
+    public NodoParaDoble(ListaDobleCircular lista) {
+        this.lista = lista;
     }
 
-    public int getDato() {
-        return dato;
+    public ListaDobleCircular getLista() {
+        return lista;
+    }
+
+    public void setLista(ListaDobleCircular lista) {
+        this.lista = lista;
     }
 
     public NodoParaDoble getAnterior() {
         return anterior;
     }
 
-    public NodoParaDoble getSiguiente() {
-        return siguiente;
-    }
-
-    public void setDato(int dato) {
-        this.dato = dato;
-    }
-
     public void setAnterior(NodoParaDoble anterior) {
         this.anterior = anterior;
+    }
+
+    public NodoParaDoble getSiguiente() {
+        return siguiente;
     }
 
     public void setSiguiente(NodoParaDoble siguiente) {

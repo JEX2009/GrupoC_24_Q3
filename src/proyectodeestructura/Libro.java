@@ -1,5 +1,6 @@
 package proyectodeestructura;
 
+import proyectodeestructura.structures.ListaDobleEnlazada;
 import proyectodeestructura.structures.ListaElementos;
 import proyectodeestructura.structures.ListaEsperaCOLA;
 import proyectodeestructura.structures.elemento;
@@ -12,6 +13,7 @@ public class Libro extends elemento{
     private String YearPublication; // 19/10/20 En este formato
     public static ListaElementos libros = new ListaElementos();
     public static ListaEsperaCOLA listaEspera = new ListaEsperaCOLA();
+    public static ListaDobleEnlazada listaDeAutores = new ListaDobleEnlazada();
 
     public Libro(String titulo, String autor, String iSB, String fechaPublicacion) {
         this.Titulo = titulo;

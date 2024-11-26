@@ -75,6 +75,20 @@ public class ListaElementos {
         return null;
     }
 
+    public void addLibro(Libro elemento) {
+        NodoElemento nuevoNodo = new NodoElemento(elemento);
+        if (cabeza == null) {
+            cabeza = nuevoNodo;
+        } else {
+            NodoElemento actual = cabeza;
+            while (actual.getSiguiente() != null) {
+                actual = actual.getSiguiente();
+            }
+            actual.setSiguiente(nuevoNodo);
+        }
+        Libro.listaDeAutores.AgregarLibro(elemento);
+    }
+
     // Clase Bibliotecario
     public Bibliotecario EncontrarB(String titulo) {
         NodoElemento auxiliar = cabeza;

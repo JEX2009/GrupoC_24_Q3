@@ -20,8 +20,9 @@ public class ProyectoDeEstructura {
         Socio socioDefault = new Socio("Socio", "123", 8902020, 19);
         Socio.socios.add(socioDefault);
         socioDefault.getHistorialBusqueda().add("3 noches");
-        Libro.libros.add(new Libro("3 noches", "Paulo", "12ehdqw", "9/11/1990"));
-        Libro.libros.add(new Libro("3 noches", "Paulo", "12ehdqw", "9/11/1990"));
+        Libro.libros.addLibro(new Libro("3 noches", "Paulo", "12ehdqw", "9/11/1990"));
+        Libro.libros.addLibro(new Libro("3 noches", "Paulo", "12ehdqw", "9/11/1990"));
+        Libro.libros.addLibro(new Libro("7 noches", "Paulo", "12ehd", "19/10/1970"));
         //
         Scanner scanner = new Scanner(System.in);
         String eleccion = "";
@@ -47,6 +48,7 @@ public class ProyectoDeEstructura {
                     // Se puede hacer un metodo que vuelva a preguntar para ahorrar volver a correr
                     // el programa
                     System.out.println("No se ingreso correctamente");
+                    break;
                 }
             } else {
                 // Dependiendo del usuario se usa una variable o otra, se puede quitar la
@@ -54,8 +56,11 @@ public class ProyectoDeEstructura {
                 // pero no cambia mucho
                 if (tipoUsuario.equals("bibliotecario")) {
                     registrado = iniciarSesion(scanner, usuario, tipoUsuario);
-                } else {
+                } else if (tipoUsuario.equals("socio")) {
                     registradoSocio = iniciarSesion(scanner, usuario, tipoUsuario);
+                } else {
+                    System.out.println("No se ingreso correctamente");
+                    break;
                 }
             }
 
@@ -247,9 +252,13 @@ public class ProyectoDeEstructura {
             Libro.listaEspera.mostrar(); // Aca hay un pequenio error dado que las fechas probablemente no se actualicen
                                          // pero en un caso perfecto el bibliotecario pone la fecha de prestamo de los
                                          // de la lista de espera
+            Libro.listaDeAutores.mostrarLibrosPorAutor(libro.getAutor());
         } else {
-            System.out.println("No se encontro el libro");
+            System.out.println("No se encontro el libro aunque puedes ver los siguientes: \n");
         }
     }
 
 }
+
+
+// Los unicos que trabajamos en el avance 2 fueron Jason Orozco y Sebastiasn Mendez Los otros 2 ni en el github se metieron

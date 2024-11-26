@@ -1,77 +1,64 @@
 package proyectodeestructura.structures;
 
+import proyectodeestructura.Libro;
+
 public class ListaDobleCircular {
-    private NodoParaDoble cabeza;
+    private NodoCircular cabeza;
+    private NodoCircular cola;
 
-    public ListaDobleCircular() {
-        this.cabeza = null;
-    }
 
-    public void insertarInicio(int dato) {
-        NodoParaDoble nuevo = new NodoParaDoble(dato);
+    //Se usa para guardar los libros que comparten autor
+    public void add(Libro elemento) {
         if (cabeza == null) {
-            cabeza = nuevo;
-            cabeza.siguiente = cabeza;
-            cabeza.anterior = cabeza;
+            this.cabeza = new NodoCircular(elemento);
+            this.cola = this.cabeza;
+            this.cabeza.setAnterior(this.cola);
+            this.cabeza.setSiguiente(this.cola);
+            this.cola.setAnterior(this.cabeza);
+            this.cola.setSiguiente(this.cabeza);
         } else {
-            NodoParaDoble cola = cabeza.anterior;
-            nuevo.siguiente = cabeza;
-            nuevo.anterior = cola;
-            cabeza.anterior = nuevo;
-            cola.siguiente = nuevo;
-            cabeza = nuevo;
-        }
-    }
-
-    public void insertarFinal(int dato) {
-        NodoParaDoble nuevo = new NodoParaDoble(dato);
-        if (cabeza == null) {
-            cabeza = nuevo;
-            cabeza.siguiente = cabeza;
-            cabeza.anterior = cabeza;
-        } else {
-            NodoParaDoble cola = cabeza.anterior;
-            nuevo.siguiente = cabeza;
-            nuevo.anterior = cola;
-            cabeza.anterior = nuevo;
-            cola.siguiente = nuevo;
-        }
-    }
-
-    public void eliminarInicio() {
-        if (cabeza != null) {
-            if (cabeza.siguiente == cabeza) {
-                cabeza = null;
-            } else {
-                NodoParaDoble cola = cabeza.anterior;
-                cabeza = cabeza.siguiente;
-                cabeza.anterior = cola;
-                cola.siguiente = cabeza;
-            }
-        }
-    }
-
-    public void eliminarFinal() {
-        if (cabeza != null) {
-            if (cabeza.siguiente == cabeza) {
-                cabeza = null;
-            } else {
-                NodoParaDoble cola = cabeza.anterior;
-                NodoParaDoble nuevaCola = cola.anterior;
-                nuevaCola.siguiente = cabeza;
-                cabeza.anterior = nuevaCola;
-            }
+            NodoCircular aux = new NodoCircular(elemento);
+            this.cola.setSiguiente(aux);
+            aux.setAnterior(cola);
+            this.cola = aux;
+            this.cabeza.setAnterior(this.cola);
+            this.cola.setSiguiente(this.cabeza);
         }
     }
 
     public void mostrarLista() {
-        if (cabeza != null) {
-            NodoParaDoble actual = cabeza;
-            do {
-                System.out.print(actual.dato + " ");
-                actual = actual.siguiente;
-            } while (actual != cabeza);
-            System.out.println();
-        }
+        NodoCircular actual = this.cabeza;
+        do {
+            System.out.print(actual.getDato() + " ");
+            actual = actual.getSiguiente();
+        }while (actual == this.cola);
+        System.out.println();
     }
+
+    public boolean BusquedaAutor(Libro dato) {
+        NodoCircular actual = getCabeza();
+        while (actual.getSiguiente() != null) {
+            if (dato.getAutor().equals(actual.getDato().getAutor())) {
+                return true;
+            }
+            actual = actual.getSiguiente();
+        }return false;
+    }
+
+    public NodoCircular getCabeza() {
+        return cabeza;
+    }
+
+    public void setCabeza(NodoCircular cabeza) {
+        this.cabeza = cabeza;
+    }
+
+    public NodoCircular getCola() {
+        return cola;
+    }
+
+    public void setCola(NodoCircular cola) {
+        this.cola = cola;
+    }
+
 }
