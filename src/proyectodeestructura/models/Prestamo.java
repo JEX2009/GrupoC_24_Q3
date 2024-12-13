@@ -1,15 +1,14 @@
 package proyectodeestructura.models;
 
-import proyectodeestructura.structures.ListaElementos;
-import proyectodeestructura.structures.elemento;
+import proyectodeestructura.structures.Arbol;
 
-public class Prestamo extends elemento {
+public class Prestamo {
     private Libro libroPrestado;
     private Bibliotecario bibliotecarioTurno;
     private Socio socioPresto;
     private String fechaPrestamo;// 19/10/20 En este formato
     private String fechaDevolucion;// 19/10/20 En este formato
-    public static ListaElementos PrestamosActivos = new ListaElementos();
+    public static Arbol PrestamosActivos = new Arbol();
 
     public Prestamo(Libro libroPrestado, Bibliotecario bibliotecarioTurno, Socio socioPresto, String fechaPrestamo,
             String fechaDevolucion) {

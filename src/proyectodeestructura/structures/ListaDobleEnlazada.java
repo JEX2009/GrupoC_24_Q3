@@ -1,6 +1,6 @@
 package proyectodeestructura.structures;
 
-import proyectodeestructura.Libro;
+import proyectodeestructura.models.*;
 
 public class ListaDobleEnlazada {
     private NodoParaDoble cabeza;
@@ -42,7 +42,6 @@ public class ListaDobleEnlazada {
     public void mostrarLibrosPorAutor(String autor) {
         NodoParaDoble actual = getCabeza();
         boolean encontrado = false; // Bandera para indicar si se encontró el autor
-        NodoParaDoble Parada ;
         do {
             // Verificar si la lista circular actual contiene libros del autor buscado
             if (actual.getLista().BusquedaAutor(new Libro("", autor, "", ""))) {

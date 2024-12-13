@@ -1,6 +1,6 @@
 package proyectodeestructura.structures;
 
-import proyectodeestructura.Libro;
+import proyectodeestructura.models.*;
 
 public class NodoCircular {
     private Libro dato;

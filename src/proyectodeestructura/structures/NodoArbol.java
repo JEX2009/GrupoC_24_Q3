@@ -1,32 +1,27 @@
 package proyectodeestructura.structures;
 
+import proyectodeestructura.models.Prestamo;
+
 public class NodoArbol {
 
-    private String datoss;
+    private Prestamo dato;
     private NodoArbol hijoIzq;
     private NodoArbol hijoDer;
 
     // Constructor vacío
-    public NodoArbol() {
-        this.datoss = "";
-        this.hijoIzq = null;
-        this.hijoDer = null;
-    }
-
-    // Constructor con el atributo datoss
-    public NodoArbol(String datoss) {
-        this.datoss = datoss;
+    public NodoArbol(Prestamo prestamo) {
+        this.dato = prestamo;
         this.hijoIzq = null;
         this.hijoDer = null;
     }
 
     // Getters y setters
-    public String getDatoss() {
-        return datoss;
+    public Prestamo getDatoss() {
+        return dato;
     }
 
-    public void setDatoss(String datoss) {
-        this.datoss = datoss;
+    public void setDatoss(Prestamo dato) {
+        this.dato = dato;
     }
 
     public NodoArbol getHijoIzq() {

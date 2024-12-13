@@ -20,14 +20,17 @@ public class ProyectoDeEstructura {
     public static void main(String[] args) {
         // Datos quemados para probar aunque en un proyecto estos saldrian de la base de
         // datos
-        // El que cambie la lista porfavor agregue estos datos
-        Bibliotecario.bibliotecarios.add(new Bibliotecario("Admin", "123"));
+        Bibliotecario bibliotecarioDefault = new Bibliotecario("Admin", "123");
+        Bibliotecario.bibliotecarios.add(bibliotecarioDefault);
         Socio socioDefault = new Socio("Socio", "123", 8902020, 19);
         Socio.socios.add(socioDefault);
         socioDefault.getHistorialBusqueda().add("3 noches");
-        Libro.libros.addLibro(new Libro("3 noches", "Paulo", "12ehdqw", "9/11/1990"));
+        Libro libroDefault = new Libro("4 noches", "Paulo", "12ehdqw", "9/11/1990");
+        Libro.libros.addLibro(libroDefault);
         Libro.libros.addLibro(new Libro("3 noches", "Paulo", "12ehdqw", "9/11/1990"));
         Libro.libros.addLibro(new Libro("7 noches", "Paulo", "12ehd", "19/10/1970"));
+        Prestamo prestamo = new Prestamo(libroDefault, bibliotecarioDefault, socioDefault, "19/10/20", "19/11/20");
+        Prestamo.PrestamosActivos.add(prestamo);
         //
         Scanner scanner = new Scanner(System.in);
         String eleccion = "";
@@ -187,10 +190,10 @@ public class ProyectoDeEstructura {
             return;
         }
         System.out.println("El libro " + libro.getTitulo() + " se encontró");
-        System.out.println("Qué fecha se realizó el préstamo (ej: 1 de julio del 2024): ");
+        System.out.println("Qué fecha se realizó el préstamo (ej: 19/10/20): ");
         String fechaPrestado = scanner.nextLine();
 
-        System.out.println("Qué fecha se devuelve el préstamo (ej: 1 de julio del 2024): ");
+        System.out.println("Qué fecha se devuelve el préstamo (ej: 19/10/20): ");
         String fechaDevolu = scanner.nextLine();
         if (libro.getDisponible()) {
             Prestamo prestamo = new Prestamo(libro, seEncontroBibl, seEncontroSoci, fechaPrestado, fechaDevolu);
@@ -237,7 +240,7 @@ public class ProyectoDeEstructura {
         String autor = scanner.nextLine();
         System.out.println("Cual es el ISB (identificador) del libro: ");
         String isb = scanner.nextLine();
-        System.out.println("Cual es el año de publicación (ej: 2 de septiembre del 1990): ");
+        System.out.println("Cual es el año de publicación (ej:19/10/20): ");
         String anioPublicacion = scanner.nextLine();
 
         Libro libro = new Libro(titulo, autor, isb, anioPublicacion);

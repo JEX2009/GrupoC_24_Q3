@@ -1,5 +1,7 @@
 package proyectodeestructura.structures;
 
+import proyectodeestructura.models.Prestamo;
+
 public class Arbol {
     private NodoArbol raiz;
 
@@ -9,7 +11,7 @@ public class Arbol {
     }
 
     // Método para insertar un nodo en el árbol
-    public void insertar(String datoss) {
+    public void add(Prestamo datoss) {
         NodoArbol nuevo = new NodoArbol(datoss);
         if (raiz == null) {
             raiz = nuevo;
@@ -19,7 +21,21 @@ public class Arbol {
     }
 
     private void insertarEnArbol(NodoArbol actual, NodoArbol nuevo) {
-        if (nuevo.getDatoss().compareTo(actual.getDatoss()) < 0) {
+        String fechaDevolucionNuevo = nuevo.getDatoss().getFechaDevolucion();
+        String fechaDevolucionActual = actual.getDatoss().getFechaDevolucion();
+    
+        // Extraer año, mes y día de ambas fechas
+        int anioNuevo = Integer.parseInt(fechaDevolucionNuevo.substring(6, 8));
+        int anioActual = Integer.parseInt(fechaDevolucionActual.substring(6, 8));
+        int mesNuevo = Integer.parseInt(fechaDevolucionNuevo.substring(3, 5));
+        int mesActual = Integer.parseInt(fechaDevolucionActual.substring(3, 5));
+        int diaNuevo = Integer.parseInt(fechaDevolucionNuevo.substring(0, 2)); 
+        int diaActual = Integer.parseInt(fechaDevolucionActual.substring(0, 2));
+
+        //Se comparan 
+        if (anioNuevo < anioActual || 
+        (anioNuevo == anioActual && mesNuevo < mesActual) || 
+        (anioNuevo == anioActual && mesNuevo == mesActual && diaNuevo < diaActual)) {
             if (actual.getHijoIzq() == null) {
                 actual.setHijoIzq(nuevo);
             } else {
