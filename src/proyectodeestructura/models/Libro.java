@@ -1,11 +1,11 @@
-package proyectodeestructura;
+package proyectodeestructura.models;
 
 import proyectodeestructura.structures.ListaDobleEnlazada;
 import proyectodeestructura.structures.ListaElementos;
 import proyectodeestructura.structures.ListaEsperaCOLA;
 import proyectodeestructura.structures.elemento;
 
-public class Libro extends elemento{
+public class Libro extends elemento {
     private String Titulo;
     private String Autor;
     private Boolean Disponible;

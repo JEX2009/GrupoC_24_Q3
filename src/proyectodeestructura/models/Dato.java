@@ -1,4 +1,4 @@
-package proyectodeestructura;
+package proyectodeestructura.models;
 
 public class Dato {
     private Socio persona;
@@ -13,5 +13,5 @@ public class Dato {
 
     public void setPersona(Socio persona) {
         this.persona = persona;
-    } 
+    }
 }

@@ -1,13 +1,13 @@
-package proyectodeestructura;
+package proyectodeestructura.models;
 
 import proyectodeestructura.structures.ListaElementos;
 import proyectodeestructura.structures.elemento;
 
-public class Bibliotecario extends elemento{
+public class Bibliotecario extends elemento {
     private String Nombre;
     private String Password; // Se puede hacer un validador para que no se puedan poner contrasenas debiles
     public static ListaElementos bibliotecarios = new ListaElementos();
-    
+
     public Bibliotecario(String nombre, String password) {
         Nombre = nombre;
         Password = password;
@@ -29,11 +29,9 @@ public class Bibliotecario extends elemento{
         Password = password;
     }
 
-
-
     @Override
     public String toString() {
         return "Bibliotecario [Nombre=" + Nombre + ", Password=" + Password + "]";
     }
-    
+
 }

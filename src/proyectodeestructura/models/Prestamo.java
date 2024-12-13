@@ -1,9 +1,9 @@
-package proyectodeestructura;
+package proyectodeestructura.models;
 
 import proyectodeestructura.structures.ListaElementos;
 import proyectodeestructura.structures.elemento;
 
-public class Prestamo extends elemento{
+public class Prestamo extends elemento {
     private Libro libroPrestado;
     private Bibliotecario bibliotecarioTurno;
     private Socio socioPresto;
